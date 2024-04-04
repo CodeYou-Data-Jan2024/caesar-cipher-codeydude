@@ -1,10 +1,21 @@
 # add your code here
-encription_dict = {"a":"f", "b":"g", "c":"h", "d":"i", "e":"j", "f":"k", "g":"l", "h":"m", "i":"n", "j":"o", "k":"p", "l":"q", "m":"r", "n":"s",  "o":"t", "p":"u", "q":"v", "r":"w", "s":"x", "t":"y", "u":"z", "v":"a", "w":"b", "x":"c", "y":"d", "z":"e"}
-
-
-text = input("Enter message:")
-text = text.lower()
-secret = ""
-for word in text:
-    secret += encription_dict.get(word, word)
-print(secret)
+plaintext = input("Please enter a sentence: ").lower()
+encrypted_text = ""
+for char in plaintext:
+    char_to_ascii = ord(char)
+    if  97 <= char_to_ascii <= 122:
+        char_to_ascii += 5
+        if char_to_ascii > 122:
+            diff = char_to_ascii - 122
+            if diff == 1:
+                char_to_ascii = 97
+            elif diff == 2:
+                char_to_ascii = 98
+            elif diff == 3:
+                char_to_ascii = 99
+            elif diff == 4:
+                char_to_ascii = 100
+            elif diff == 5:
+                char_to_ascii = 101
+    encrypted_text = encrypted_text + chr(char_to_ascii)
+print("The encrypted sentences is:", encrypted_text)
