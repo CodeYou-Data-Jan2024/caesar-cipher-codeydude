@@ -1,21 +1,12 @@
 # add your code here
-plaintext = input("Please enter a sentence: ").lower()
-encrypted_text = ""
-for char in plaintext:
-    char_to_ascii = ord(char)
-    if  97 <= char_to_ascii <= 122:
-        char_to_ascii += 5
-        if char_to_ascii > 122:
-            diff = char_to_ascii - 122
-            if diff == 1:
-                char_to_ascii = 97
-            elif diff == 2:
-                char_to_ascii = 98
-            elif diff == 3:
-                char_to_ascii = 99
-            elif diff == 4:
-                char_to_ascii = 100
-            elif diff == 5:
-                char_to_ascii = 101
-    encrypted_text = encrypted_text + chr(char_to_ascii)
-print("The encrypted sentences is:", encrypted_text)
+plain_text = input("Please enter the Plain text: ")
+plain_text = plain_text.lower()
+cipher_text = ""
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+shifted_alphabet = ["f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","a","b","c","d","e"]
+for letter in plain_text:
+    if letter in alphabet:
+        cipher_text += shifted_alphabet[alphabet.index(letter)]
+    else:
+        cipher_text += letter
+print("The Cipher text is", cipher_text)
